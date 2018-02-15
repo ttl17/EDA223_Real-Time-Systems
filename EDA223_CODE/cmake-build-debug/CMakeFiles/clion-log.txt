@@ -1,0 +1,4 @@
+D:\Software\JetBrains\ToolBox\apps\CLion\ch-0\173.4127.32\bin\cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "E:\EDA223 - Real time systems\EDA223_CODE"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug

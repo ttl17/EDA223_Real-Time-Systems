@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="EDA223_CODE"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EDA223_CODE">
+				<Option output="E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/EDA223_CODE.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/device"/>
+					<Add directory="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/device/inc"/>
+					<Add directory="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver"/>
+					<Add directory="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/inc"/>
+					<Add directory="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/src"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++/backward"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include-fixed"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 EDA223_CODE"/>
+					<CompileFile command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="EDA223_CODE/fast">
+				<Option output="E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/EDA223_CODE.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/device"/>
+					<Add directory="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/device/inc"/>
+					<Add directory="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver"/>
+					<Add directory="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/inc"/>
+					<Add directory="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/src"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include/c++/backward"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/include-fixed"/>
+					<Add directory="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/7.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 EDA223_CODE/fast"/>
+					<CompileFile command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Software/mingw-w64/x86_64-7.2.0-posix-seh-rt_v5-rev1/mingw64/bin/mingw32-make.exe -f &quot;E:/EDA223 - Real time systems/EDA223_CODE/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/TinyTimber.c">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/TinyTimber.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/application.c">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/canTinyTimber.c">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/canTinyTimber.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/device/inc/core_cm4.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/device/inc/core_cm4_simd.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/device/inc/core_cmFunc.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/device/inc/core_cmInstr.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/device/inc/stm32f4xx.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/device/inc/system_stm32f4xx.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/inc/stm32f4xx_can.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/inc/stm32f4xx_dac.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/inc/stm32f4xx_gpio.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/inc/stm32f4xx_rcc.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/inc/stm32f4xx_tim.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/inc/stm32f4xx_usart.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/src/stm32f4xx_can.c">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/src/stm32f4xx_dac.c">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/src/stm32f4xx_gpio.c">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/src/stm32f4xx_rcc.c">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/src/stm32f4xx_tim.c">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/driver/src/stm32f4xx_usart.c">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/sciTinyTimber.c">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/sciTinyTimber.h">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/TinyTimber/startup.c">
+			<Option target="EDA223_CODE"/>
+		</Unit>
+		<Unit filename="E:/EDA223 - Real time systems/EDA223_CODE/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

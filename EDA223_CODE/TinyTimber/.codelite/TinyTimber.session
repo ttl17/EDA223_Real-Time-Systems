@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Session Name="E:\EDA223 - Real Time Systems\EDA223_CODE\TinyTimber\TinyTimber.workspace">
+  <int Value="0" Name="m_selectedTab"/>
+  <wxString Value="E:\EDA223 - Real Time Systems\EDA223_CODE\TinyTimber\TinyTimber.workspace" Name="m_workspaceName"/>
+  <TabInfoArray Name="TabInfoArray">
+    <TabInfo>
+      <wxString Value="E:\EDA223 - Real Time Systems\EDA223_CODE\TinyTimber\application.c" Name="FileName"/>
+      <int Value="49" Name="FirstVisibleLine"/>
+      <int Value="50" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\EDA223 - Real Time Systems\EDA223_CODE\TinyTimber\TinyTimber.c" Name="FileName"/>
+      <int Value="39" Name="FirstVisibleLine"/>
+      <int Value="39" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+    <TabInfo>
+      <wxString Value="E:\EDA223 - Real Time Systems\EDA223_CODE\TinyTimber\TinyTimber.h" Name="FileName"/>
+      <int Value="131" Name="FirstVisibleLine"/>
+      <int Value="147" Name="CurrentLine"/>
+      <wxArrayString Name="Bookmarks"/>
+      <IntVector Name="CollapsedFolds"/>
+    </TabInfo>
+  </TabInfoArray>
+  <SerializedObject Name="m_breakpoints">
+    <long Value="0" Name="Count"/>
+  </SerializedObject>
+</Session>
