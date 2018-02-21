@@ -16,20 +16,23 @@ typedef struct {
 	int deadline;
 	int volume;
 	int pulse;
-	int freq;
+	int period;
 } ToneGen;
 
 typedef struct {
     Object super;
     int isToneGenRunning;
-	int isBackgrLoadRunning;
+	int isMelodyPlayerRunning;
 } App;
 
 typedef struct {
 	Object super;
-	int deadline;
-	int period; 
-	int tune;
+	int deadline; //D = 100ms, may be equal or smaller to period
+	int period; //T = beat*tempo
+	int tempo; //factor a,b,c
+	int beat; //default a = 500ms
+	int idx; //select tempo from arr
+	int key; //change tune
 } MelodyPlayer;
 
 void reader(App*, int);
@@ -37,19 +40,49 @@ void receiver(App*, int);
 
 App app = { initObject(), 0 };
 ToneGen tonegen = {initObject(), 100, 5, 1, 500 };
-BackgrLoad backgrl = {initObject(), 1300, 1300, 1000};
+MelodyPlayer melplay = {initObject(),50, 500, 2, 250, 0, 0};
 
 Serial sci0 = initSerial(SCI_PORT0, &app, reader);
 Can can0 = initCan(CAN_PORT0, &app, receiver);
 
-void backgr_load(BackgrLoad * self, int unused){
-	SEND(USEC(self->period), USEC(self->deadline),self,  backgr_load, NULL);
-	for (int i=0; i<self->background_loop_range; i++);
+#define IDX2FREQ(k) 440*pow(2,k/12.)
+#define FREQ2PER(f) 1/(2*f)
+#define BPM2MS(b) 60000/b
+
+#define MIN_INDEX -10
+#define MAX_INDEX 14
+int tune[32] = {0, 2, 4, 0, 0, 2, 4, 0, 4, 5, 7, 4, 5, 7, 7, 9, 7, 5, 4, 0, 7, 9, 7, 5, 4, 0, 0, -5, 0, 0, -5, 0};
+int tempo[32] = {2, 2, 2, 2, 
+				2, 2, 2, 2, 
+				2, 2, 4, 2, 
+				2, 4, 1, 1, 
+				1, 1, 2, 2, 
+				1, 1, 1, 1, 
+				2, 2, 2, 2,
+				4, 2, 2, 4};
+				
+int period[25] = {2024, 1911, 1803, 1702, 1607, 1516, 1431, 1351, 1275, 1203, 1136,1072, 1012,  955,  901,
+  851,  803,  758,  715,  675,  637,  601,  568,  536,  506};//14-(-10)+1
+
+void get_brother_john_tune(ToneGen *tonegen, MelodyPlayer * melplay) {
+	
+	int k = melplay->key - MIN_INDEX;
+	
+	melplay->tempo = tempo[melplay->idx];
+	
+	//&tonegen->period=;
+	melplay->period=melplay->beat*melplay->tempo;
+	tonegen->period=period[tune[melplay->idx] + k];
+	
+	
+	
 	
 }
 
+
+
 //Function generating tone
-void tone_generator(ToneGen *self, int unused){
+void tone_generator(ToneGen *self, int doWork){
 	/* To produce audible output from 1kHz wave we need to:
 	 * - have wave split on two half-periods of 500Hz
 	 * - at next periods volume is multiplied by pulse
@@ -57,17 +90,28 @@ void tone_generator(ToneGen *self, int unused){
 	 * - so we have high and low volume respectively
 	 * - that gives audible output
 	 */
+	 
+	//if (!doWork){
+	//	ABORT();
+	//} else {
+		//after 500[us] run tone_generator again with 1/0 pulse
+		//SEND(USEC(self->period), USEC(self->deadline),self,  tone_generator, doWork);
+		SEND(USEC(self->period), USEC(self->period),self,  tone_generator, doWork);
+		
+		//send signal to DAC with high/low volume
+		*DAC_SOUND_REG = self->volume * self->pulse;
+		//switch pulse to 1/0
+		
+		self->pulse = !self->pulse;
+		
+	//}
 	
-	//after 500[us] run tone_generator again with 1/0 pulse
-	SEND(USEC(self->freq), USEC(self->deadline),self,  tone_generator, NULL);
-	//send signal to DAC with high/low volume
-	*DAC_SOUND_REG = self->volume * self->pulse;
-	//switch pulse to 1/0
-	self->pulse = !self->pulse;
 	
 }
 
-//Function for muting volume
+
+
+//Function for muting volumej
 void sound_mutter(ToneGen *self, int arg){
 	self->volume = 0;
 	
@@ -115,39 +159,16 @@ void volume_down(ToneGen *self, int arg){
 //Function for decreasing volume
 void change_period(ToneGen *self, int arg){
 	
-	if (self->freq == 500) self->freq = 650;
-	else if (self->freq == 650) self->freq = 931;
-	else if (self->freq == 931) self->freq = 500;
+	if (self->period == 500) self->period = 650;
+	else if (self->period == 650) self->period = 931;
+	else if (self->period == 931) self->period = 500;
 
 	char buf[100];
-	sprintf(buf,"freq = %d\n",self->freq);
+	sprintf(buf,"period = %d\n",self->period);
 	SCI_WRITE(&sci0, buf);
 }
 
-void load_add(BackgrLoad * self, int arg){
-	if (self->background_loop_range >= 8000){
-		self->background_loop_range = 8000;
-	} else {
-		self->background_loop_range += 500;
-	}
-	
-	char buf[100];
-	sprintf(buf,"load = %d\n",self->background_loop_range);
-	SCI_WRITE(&sci0, buf);
-}
 
-void load_remove(BackgrLoad * self, int arg){
-	
-	if (self->background_loop_range <= 0){
-		self->background_loop_range = 0;
-	} else {
-		self->background_loop_range -= 500;
-	}
-	
-	char buf[100];
-	sprintf(buf,"load = %d\n",self->background_loop_range);
-	SCI_WRITE(&sci0, buf);
-}
 
 
 void change_deadline(ToneGen * self, int arg){
@@ -161,6 +182,80 @@ void change_deadline(ToneGen * self, int arg){
 	char buf[100];
 	sprintf(buf,"deadline = %d\n",self->deadline);
 	SCI_WRITE(&sci0, buf);
+}
+
+void change_key(MelodyPlayer *self, int key) {
+	static int i, key;
+	static char buf[1000];
+	
+	SCI_WRITE(&sci0, "Rcv: \'");
+    SCI_WRITECHAR(&sci0, c);
+	SCI_WRITE(&sci0, "\'\n");
+	
+		
+		i = 0;
+		if (key > -6 && key < 6)
+			self->key = key;
+		else if (key < -5 ) {
+			self->key = -5;
+		} else if (key > 5) {
+			self->key = 5;
+		} else {
+			SCI_WRITE(&sci0, "wrong key ");
+			sprintf(buf,"%d",key);
+			SCI_WRITE(&sci0, buf);
+			SCI_WRITE(&sci0, ", expected value -6 < key < 6\n");
+		}
+
+
+}
+
+void change_tempo(MelodyPlayer *self, int c) {
+	static int i, key;
+	static char buf[1000];
+	
+	SCI_WRITE(&sci0, "Rcv: \'");
+    SCI_WRITECHAR(&sci0, c);
+	SCI_WRITE(&sci0, "\'\n");
+	
+	if (c == 'e') {
+		buf[i++] = '\0';
+		key = atoi(buf);
+		i = 0;
+		if (key > 59 && key < 241)
+			self->tempo = BPM2MS(key);
+		else if (key < 60) {
+			self->tempo = BPM2MS(60);
+		} else if (key > 240) {
+			self->tempo = BPM2MS(240);
+		} else {
+			SCI_WRITE(&sci0, "wrong key ");
+			sprintf(buf,"%d",key);
+			SCI_WRITE(&sci0, buf);
+			SCI_WRITE(&sci0, ", expected value -6 < key < 6\n");
+		}
+	
+	} else if (c != 'e') { 
+		buf[i++] = c;
+	} 
+
+}
+
+void melplay_load(MelodyPlayer * self, int unused){
+	ASYNC(&tonegen, sound_unmutter, 0);
+	//set new tone	
+	get_brother_john_tune(&tonegen, self);
+
+	
+	if(self->idx < 31) self->idx++; else self->idx=0;
+	char buf[100];
+	sprintf(buf,"%d, %d, %d\n",self->idx, self->period, tonegen.period);
+	SCI_WRITE(&sci0, buf);
+	
+	SEND(MSEC(self->period - 50), MSEC(self->period-50), &tonegen, sound_mutter, 1);
+	SEND(MSEC(self->period),  	  MSEC(self->period), self,  	  melplay_load, NULL);
+	
+	
 }
 
 
@@ -182,13 +277,13 @@ void run_tone_generator(App *self, int c){
 	}
 }
 
-void run_backgr_load(App *self, int c){
-	if (self->isBackgrLoadRunning) {
+void run_melplay_load(App *self, int c){
+	if (self->isMelodyPlayerRunning) {
 		SCI_WRITE(&sci0, "Already is running \n");
 	} else {
 		SCI_WRITE(&sci0, "Starting dummy load \n");
-		ASYNC(&backgrl, backgr_load, NULL);
-		self->isBackgrLoadRunning = 1;
+		
+		self->isMelodyPlayerRunning = 1;
 	}
 }
 
@@ -207,14 +302,16 @@ void reader(App *self, int c) {
 	} else if (c == 'u') {
 		SYNC(&tonegen, sound_unmutter, 0);
 	} else if (c == 'l') {
-		SYNC(&backgrl, load_add, 0);
+		SYNC(&t)
 	} else if (c == 'r') {
-		SYNC(&backgrl, load_remove,0 );
+		buf[i++] = c;
+		buf[i++] = '\0';
+		key = atoi(buf);
 	} else if (c == 'n') {
 		SYNC(&tonegen, change_period,0);
 	} else if (c == 'd'){
 		ASYNC(&tonegen, change_deadline,100);
-		ASYNC(&backgrl, change_deadline,1300);
+		ASYNC(&melplay, change_deadline,1300);
 	} else {
 		SCI_WRITE(&sci0, "Ignoring key input \n");
 	}
@@ -226,8 +323,8 @@ void begin(App *self, int unused){
 	SCI_INIT(&sci0);
 	SCI_WRITE(&sci0, "Initializing tone generator \n");
 	//initialize tone generator in parallel, sync will start nothing
-	ASYNC(&app, run_tone_generator, NULL);
-	ASYNC(&app, run_backgr_load, NULL);
+	ASYNC(&melplay, melplay_load, NULL);
+	ASYNC(&tonegen, tone_generator, NULL);
 }
 
 
